@@ -48,4 +48,87 @@ class ZooTest < Minitest::Test
 
     assert_equal [@animal1, @animal2, @animal3], @zoo.animals
   end
+
+  def test_it_can_get_count_of_animals_under_10
+    skip
+    add_all_animals
+
+    assert_equal 4, @zoo.num_young_animals
+  end
+
+  def test_it_can_get_all_animals_over_50
+    skip
+    add_all_animals
+
+    assert_equal [@animal4, @animal10], @zoo.old_animals
+  end
+
+  def test_it_can_get_animal_names
+    skip
+    add_all_animals
+
+    expected = [
+      'Ellie',
+      'Abbott',
+      'Costello',
+      'Frank',
+      'Gwyn',
+      'Penny',
+      'Jerry',
+      'Amanda',
+      'Cory',
+      'Sarah'
+    ]
+
+    assert_equal expected, @zoo.animal_names
+  end
+
+  def test_it_can_get_all_species
+    skip
+    add_all_animals
+
+    expected = [
+      'Elephant',
+      'Alpaca',
+      'Unicorn',
+      'Penguin',
+      'Giraffe',
+      'Panda',
+      'Manticore',
+      'Tortoise'
+    ]
+
+    assert_equal expected, @zoo.species
+  end
+
+  def test_it_can_get_oldest_animal
+    skip
+    add_all_animals
+
+    assert_equal @animal4, @zoo.oldest_animal
+  end
+
+  def test_it_can_group_animals_by_category
+    skip
+    add_all_animals
+
+    expected = {
+      mythical_creatures: [
+        @animal4,
+        @animal9,
+        @animal10
+      ],
+      unmythical_creatures: [
+        @animal1,
+        @animal2,
+        @animal3,
+        @animal5,
+        @animal6,
+        @animal7,
+        @animal8
+      ]
+    }
+
+    assert_equal expected, @zoo.animals_by_category
+  end
 end
